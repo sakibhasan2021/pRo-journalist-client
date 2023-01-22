@@ -1,0 +1,24 @@
+.service-container{
+    /* background-color: red; */
+    margin: 3rem;
+    padding: 2rem;
+}
+.service{
+    width: 100%;
+    background-color:rgb(255, 248, 248);
+    padding: 2rem 3rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    border-radius: 1.5rem;
+}
+.service-img img{
+    border-radius: 1.5rem;
+    padding: 0.4rem 0.6rem;
+    width: 90%;
+    height: 60vh;
+    margin-bottom: 1rem;
+  
+}
+.service-info{
+    width: 100%;
+    font-size: 1.5rem;
+}

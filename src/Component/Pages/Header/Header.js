@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div
-      className="hero min-h-screen"
+      className="hero min-h-screen header-container "
       style={{
         backgroundImage: `url("https://www.revv.co.in/blogs/wp-content/uploads/2021/09/Sports-Stadiums-in-India.jpg")`,
       }}
@@ -20,25 +20,29 @@ const Header = () => {
           <div className="lists">
             <ul className="list">
               <li className="list-item">
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
               </li>
               <li className="list-item">
-                <Link to="/">Service</Link>
+                <Link to="/service">Service</Link>
               </li>
               <li className="list-item">
-                <Link to="/">Cover Area</Link>
+                <Link to="/coverarea">Cover Area</Link>
               </li>
               <li className="list-item">
-                <Link to="/">Review</Link>
+                <Link to="/review">Review</Link>
               </li>
             </ul>
             <div className="registration">
-              <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
-                Log In
-              </button>
-              <button className="btn btn-ghost text-white text-2xl font-bold ">
-                Sign Up
-              </button>
+              <Link to="/login">
+                <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
+                  Log In
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className="btn btn-ghost text-white text-2xl font-bold ">
+                  Sign Up
+                </button>
+              </Link>
             </div>
           </div>
         </nav>
