@@ -1,0 +1,45 @@
+.form-container {
+    margin-left: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.login-section {
+    margin: 4rem;
+
+    /* background-color: rebeccapurple; */
+    padding: 1rem;
+}
+.login-section input{
+    outline: none;
+    font-size: 14px;
+        border-radius: 6px;
+        line-height: 1.5;
+        padding: 5px 10px;
+        transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+        border: 2px solid #dee1e2;
+        color: rgb(14, 14, 16);
+        background: #dee1e2;
+        display: block;
+        height: 36px;
+}
+    
+                .login-section:hover {
+            border-color: #ccc;
+        }
+    
+           .login-section :focus {
+            border-color: #3e147b;
+            background: #fff;
+        } 
+
+
+.login-section input[type="email"],[type="password"],[type="text"]{
+    width: 40rem;
+}
+.login-section input[type="submit"]{
+    padding:0.5rem 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}

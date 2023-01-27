@@ -27,11 +27,17 @@ const router = createBrowserRouter([
         element: <Allservices></Allservices>,
       },
       {
-        path: "/coverarea",
+        path: "/experience",
+        loader: () => {
+          return fetch(`http://localhost:5001/experience`);
+        },
         element: <CoverArea></CoverArea>,
       },
       {
         path: "/review",
+        loader: () => {
+          return fetch(`http://localhost:5001/review`);
+        },
         element: <Review></Review>,
       },
       {

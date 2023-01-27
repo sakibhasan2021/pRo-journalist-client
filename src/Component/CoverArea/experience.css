@@ -1,0 +1,22 @@
+.experience-container{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3rem;
+}
+
+.card-container{
+    width: 90%;
+    margin: 4rem 2rem;
+}
+@media screen and (max-width:780px) {
+    .experience-container{
+        grid-template-columns: repeat(2, 1fr);
+            grid-gap: 3rem;
+    }
+}
+@media screen and (max-width:580px) {
+    .experience-container{
+        grid-template-columns: repeat(1, 1fr);
+            grid-gap: 3rem;
+    }
+}

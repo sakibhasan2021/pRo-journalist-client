@@ -1,0 +1,27 @@
+.review-container{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3rem;
+}
+.review{
+   margin: 3rem;
+    width: 80%;
+}
+.review img{
+    width: 40%;
+    border-radius: 50%;
+    padding:2rem;
+}
+@media screen and (max-width:780px) {
+    .review-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3rem;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .review-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 3rem;
+    }
+}
