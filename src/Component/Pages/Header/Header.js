@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut().then((res) => {
+      console.log("log Out");
+    });
+  };
   return (
     <div
       className="hero min-h-screen header-container "
@@ -33,16 +40,35 @@ const Header = () => {
               </li>
             </ul>
             <div className="registration">
-              <Link to="/login">
-                <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
-                  Log In
-                </button>
-              </Link>
-              <Link to="/signup">
-                <button className="btn btn-ghost text-white text-2xl font-bold ">
-                  Sign Up
-                </button>
-              </Link>
+              {user ? (
+                <Link to="/profile">
+                  <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
+                    {user?.displayName}
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
+                    Log In
+                  </button>
+                </Link>
+              )}
+              {user ? (
+                <Link to="/login">
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-ghost text-white text-2xl font-bold "
+                  >
+                    logOut
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/signup">
+                  <button className="btn btn-ghost text-white text-2xl font-bold ">
+                    Sign Up
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </nav>

@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./../../../Contexts/AuthContext/AuthProvider";
 const Login = () => {
+  // displayName
+  const { createUserUsingGoogle } = useContext(AuthContext);
+  const handleGoogleLogIn = (e) => {
+    e.preventDefault();
+    console.log("signis");
+    createUserUsingGoogle()
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="form-container">
       <form action="">
@@ -30,7 +43,11 @@ const Login = () => {
             Or
           </h1>
 
-          <button className="btn btn-primary text-2xl mt-3" type="submit">
+          <button
+            onClick={handleGoogleLogIn}
+            className="btn btn-primary text-2xl mt-3"
+            type="submit"
+          >
             Using Google
           </button>
         </div>

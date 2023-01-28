@@ -7,6 +7,7 @@ import Signup from "../../Component/Registration/SignUp/Signup";
 import Login from "./../../Component/Registration/Login/Login";
 import Allservices from "./../../Component/Pages/Service/Allservices";
 import AddReview from "../../Component/Pages/AddReview/AddReview";
+import Profile from "../../Component/Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/addreview",
         element: <AddReview></AddReview>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
       },
       {
         path: "/login",
