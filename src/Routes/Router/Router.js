@@ -8,6 +8,7 @@ import Login from "./../../Component/Registration/Login/Login";
 import Allservices from "./../../Component/Pages/Service/Allservices";
 import AddReview from "../../Component/Pages/AddReview/AddReview";
 import Profile from "../../Component/Pages/Profile/Profile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
