@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const userName = user?.email?.slice(0, 5);
   const handleLogOut = () => {
     logOut().then((res) => {
       console.log("log Out");
@@ -43,7 +44,7 @@ const Header = () => {
               {user ? (
                 <Link to="/profile">
                   <button className="btn btn-ghost text-white text-2xl font-bold mr-3">
-                    {user?.displayName}
+                    {user?.displayName || userName}
                   </button>
                 </Link>
               ) : (

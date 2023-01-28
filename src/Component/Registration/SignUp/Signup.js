@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
 const Signup = () => {
-  const { createUserUsingGoogle } = useContext(AuthContext);
+  const { createUserUsingGoogle, logInUsingEmailAndPassword } =
+    useContext(AuthContext);
   const handleGoogleLogIn = (e) => {
     e.preventDefault();
     console.log("signis");
@@ -14,9 +15,24 @@ const Signup = () => {
       })
       .catch((err) => console.log(err));
   };
+  const logIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+
+    console.log(email, name, password);
+    logInUsingEmailAndPassword(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log("user created", user);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="form-container">
-      <form action="">
+      <form onSubmit={logIn} action="">
         <div className="login-section">
           <input
             className="mb-5"
