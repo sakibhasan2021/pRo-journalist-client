@@ -6,6 +6,7 @@ import Service from "../../Component/Pages/Service/Service";
 import Signup from "../../Component/Registration/SignUp/Signup";
 import Login from "./../../Component/Registration/Login/Login";
 import Allservices from "./../../Component/Pages/Service/Allservices";
+import AddReview from "../../Component/Pages/AddReview/AddReview";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           return fetch(`http://localhost:5001/review`);
         },
         element: <Review></Review>,
+      },
+      {
+        path: "/addreview",
+        element: <AddReview></AddReview>,
       },
       {
         path: "/login",

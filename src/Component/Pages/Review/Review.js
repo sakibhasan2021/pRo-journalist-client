@@ -16,7 +16,7 @@ const Review = () => {
         ))}
       </div>
       <button className="btn btn-primary py-2 px-3 my-10 mx-12">
-        <Link to="/">Add Review</Link>
+        <Link to="/addreview">Add Review</Link>
       </button>
     </div>
   );
