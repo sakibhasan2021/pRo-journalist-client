@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
 const Signup = () => {
+  const location = useLocation();
   const { createUserUsingGoogle, logInUsingEmailAndPassword } =
     useContext(AuthContext);
   const handleGoogleLogIn = (e) => {
@@ -27,6 +28,7 @@ const Signup = () => {
       .then((res) => {
         const user = res.user;
         console.log("user created", user);
+        <Navigate to="/login" state={{ from: location }} replace />;
       })
       .catch((err) => console.log(err));
   };

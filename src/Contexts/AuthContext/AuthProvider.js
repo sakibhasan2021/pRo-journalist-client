@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 console.log(auth);
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("Sakib");
+  const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   const createUserUsingGoogle = () => {
     const provider = new GoogleAuthProvider();
