@@ -15,10 +15,6 @@ const SingleReview = ({ review }) => {
           <h5>{email}</h5>
         </div>
       </div>
-      <div className="button-container mt-6 flex m-3 justify-between">
-        <button className="btn btn-success ">Edit</button>
-        <button className="btn btn-danger me-4 ">Delete</button>
-      </div>
     </div>
   );
 };

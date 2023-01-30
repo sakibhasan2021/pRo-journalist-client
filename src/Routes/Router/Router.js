@@ -9,6 +9,7 @@ import Allservices from "./../../Component/Pages/Service/Allservices";
 import AddReview from "../../Component/Pages/AddReview/AddReview";
 import Profile from "../../Component/Pages/Profile/Profile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,13 +46,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/addreview",
-        element: <AddReview></AddReview>,
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",
-        loader: () => {
-          return fetch(`http://localhost:5001/reviewpost`);
-        },
         element: (
           <PrivateRoute>
             <Profile></Profile>
