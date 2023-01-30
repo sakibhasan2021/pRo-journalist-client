@@ -49,6 +49,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
+        loader: () => {
+          return fetch(`http://localhost:5001/reviewpost`);
+        },
         element: (
           <PrivateRoute>
             <Profile></Profile>

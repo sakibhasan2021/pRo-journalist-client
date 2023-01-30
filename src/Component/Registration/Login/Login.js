@@ -1,23 +1,42 @@
 import React, { useContext } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./../../../Contexts/AuthContext/AuthProvider";
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // displayName
-  const { createUserUsingGoogle } = useContext(AuthContext);
+  const { createUserUsingGoogle, signUserWithEmailAndPassword, loading } =
+    useContext(AuthContext);
+
   const handleGoogleLogIn = (e) => {
     e.preventDefault();
     console.log("signis");
     createUserUsingGoogle()
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        // console.log(user);
+
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.log(err));
+  };
+  const userLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        const user = res.user;
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className="form-container">
-      <form action="">
+      <form onSubmit={userLogIn} action="">
         <div className="login-section">
           <input
             type="email"
