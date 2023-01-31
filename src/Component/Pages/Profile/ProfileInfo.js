@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
+// import { FaPersonBooth, BsPerson } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
 const ProfileInfo = ({ review }) => {
@@ -13,6 +14,7 @@ const ProfileInfo = ({ review }) => {
         <figure>
           {<img src={user?.photoURL || "please add photo"} alt="user" />}
         </figure>
+
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <h2 className="card-title">{organization}</h2>
