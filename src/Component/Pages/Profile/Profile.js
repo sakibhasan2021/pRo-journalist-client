@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 import "./Profile.css";
-import { useLoaderData } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 const Profile = () => {
   // const reviews = useLoaderData();
@@ -28,6 +27,17 @@ const Profile = () => {
         setReviews(newReview);
       });
   };
+  const singleItemDelete = (id) => {
+    console.log("delete", id);
+    fetch(`http://localhost:5001/reviewpost?email=${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const newReview = reviews.filter((review) => review._id !== id);
+        setReviews(newReview);
+      });
+  };
 
   return (
     <div>
@@ -41,7 +51,11 @@ const Profile = () => {
       </button>
       {reviews &&
         reviews.map((review) => (
-          <ProfileInfo key={review._id} review={review}></ProfileInfo>
+          <ProfileInfo
+            key={review._id}
+            singleItemDelete={singleItemDelete}
+            review={review}
+          ></ProfileInfo>
         ))}
     </div>
   );

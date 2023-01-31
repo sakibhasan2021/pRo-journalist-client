@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 // import { FaPersonBooth, BsPerson } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthContext/AuthProvider";
 
-const ProfileInfo = ({ review }) => {
+const ProfileInfo = ({ review, singleItemDelete }) => {
   const { user } = useContext(AuthContext);
   //   const img=user?.photoURL ||
 
@@ -25,7 +25,12 @@ const ProfileInfo = ({ review }) => {
         </div>
         <div className="button-container mt-6 flex m-3 justify-between">
           <button className="btn btn-success ">Edit</button>
-          <button className="btn btn-danger me-4 ">Delete</button>
+          <button
+            onClick={() => singleItemDelete(_id)}
+            className="btn btn-danger me-4 "
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
